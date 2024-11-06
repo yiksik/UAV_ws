@@ -1,0 +1,8 @@
+prefix=/home/fcs/UAV/UAV_WS/devel
+
+Name: camera_pose_node
+Description: Description of camera_pose_node
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

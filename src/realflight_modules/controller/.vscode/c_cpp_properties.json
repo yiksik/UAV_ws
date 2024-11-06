@@ -1,0 +1,48 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/zjy/catkin_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/zjy/catkin_ws/src/ego-planner/planner/planner/bspline_opt/include/**",
+        "/home/zjy/catkin_ws/src/ego-planner/realflight_modules/VINS-Fusion/camera_models/include/**",
+        "/home/zjy/catkin_ws/src/ego-planner/controller/controller_msgs/include/**",
+        "/home/zjy/catkin_ws/src/ego-planner/utils/DecompROS/decomp_ros_utils/include/**",
+        "/home/zjy/catkin_ws/src/ego-planner/planner/planner/drone_detect/include/**",
+        "/home/zjy/catkin_ws/src/ego-planner/planner/planner/plan_manage/include/**",
+        "/home/zjy/catkin_ws/src/ego-planner/controller/geometric_controller/include/**",
+        "/home/zjy/catkin_ws/src/hector_slam/hector_geotiff/include/**",
+        "/home/zjy/catkin_ws/src/hector_slam/hector_map_tools/include/**",
+        "/home/zjy/catkin_ws/src/hector_slam/hector_mapping/include/**",
+        "/home/zjy/catkin_ws/src/hector_slam/hector_marker_drawing/include/**",
+        "/home/zjy/catkin_ws/src/helloword/include/**",
+        "/home/zjy/PX4_Firmware/Tools/sitl_gazebo/include/**",
+        "/home/zjy/catkin_ws/src/ego-planner/uav_simulator/mockamap/include/**",
+        "/home/zjy/catkin_ws/src/my_robot_pkg/include/**",
+        "/home/zjy/catkin_ws/src/ego-planner/planner/planner/path_searching/include/**",
+        "/home/zjy/catkin_ws/src/ego-planner/planner/planner/plan_env/include/**",
+        "/home/zjy/catkin_ws/src/ego-planner/utils/pose_utils/include/**",
+        "/home/zjy/catkin_ws/src/VIO/include/**",
+        "/home/zjy/catkin_ws/src/ego-planner/utils/quadrotor_msgs/include/**",
+        "/home/zjy/catkin_ws/src/realsense-ros/realsense2_camera/include/**",
+        "/home/zjy/catkin_ws/src/realsense_ros_gazebo/include/**",
+        "/home/zjy/catkin_ws/src/ego-planner/uav_simulator/so3_control/include/**",
+        "/home/zjy/catkin_ws/src/ego-planner/uav_simulator/so3_quadrotor_simulator/include/**",
+        "/home/zjy/catkin_ws/src/test_px4/include/**",
+        "/home/zjy/catkin_ws/src/ego-planner/planner/planner/traj_utils/include/**",
+        "/home/zjy/catkin_ws/src/ego-planner/utils/uav_utils/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

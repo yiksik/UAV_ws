@@ -1,0 +1,57 @@
+<launch>
+  <arg name="device_type_camera1"    		default="t265"/>
+  <arg name="device_type_camera2"    		default="d435"/>		<!-- Note: using regular expression. match D435, D435i, D415... -->
+  <arg name="serial_no_camera1"    			default=""/>
+  <arg name="serial_no_camera2"    			default=""/>
+  <arg name="camera1"              			default="camera"/>
+  <arg name="camera2"              			default="d435"/>
+  <arg name="tf_prefix_camera1"         default="$(arg camera1)"/>
+  <arg name="tf_prefix_camera2"         default="$(arg camera2)"/>
+  <arg name="initial_reset"             default="false"/>
+  <!-- reconnect_timeout是启动时未找到设备重连间隔时间 -->
+  <arg name="reconnect_timeout"         default="6.0"/>
+  <arg name="enable_fisheye"            default="false"/>
+  <arg name="color_width"               default="640"/>
+  <arg name="color_height"              default="480"/>
+  <arg name="depth_width"               default="640"/>
+  <arg name="depth_height"              default="480"/>
+  <arg name="clip_distance"             default="-2"/>
+  <arg name="topic_odom_in"             default="odom_in"/>
+  <arg name="calib_odom_file"           default=""/>
+
+  <!-- 配置t265相机 -->
+  <group ns="$(arg camera1)">
+    <include file="$(find realsense2_camera)/launch/includes/nodelet.launch.xml">
+      <arg name="device_type"           value="$(arg device_type_camera1)"/>
+      <arg name="serial_no"             value="$(arg serial_no_camera1)"/>
+      <arg name="tf_prefix"         		value="$(arg tf_prefix_camera1)"/>
+      <arg name="initial_reset"         value="$(arg initial_reset)"/>
+      <arg name="reconnect_timeout"     value="$(arg reconnect_timeout)"/>
+      <arg name="enable_fisheye1"       value="$(arg enable_fisheye)"/>
+      <arg name="enable_fisheye2"       value="$(arg enable_fisheye)"/>
+      <arg name="topic_odom_in"         value="$(arg topic_odom_in)"/>
+      <arg name="calib_odom_file"       value="$(arg calib_odom_file)"/>
+      <arg name="enable_pose"           value="true"/>
+      <!-- 新增参数 -->
+      <!-- 相机的IMU数据与深度和彩色图像数据同步 -->
+      <arg name="enable_sync"           value="true"/>
+      <!-- 陀螺仪数据的帧率 -->
+      <arg name="gyro_fps"                 value="200"/>
+      <!-- 加速度计数据的帧率。设置为-1意味着使用传感器的最大帧率 -->
+      <arg name="accel_fps"                value="-1"/>
+      <!-- 启用陀螺仪数据和加速度计数据 -->
+      <arg name="enable_gyro"              value="true"/>
+      <arg name="enable_accel"             value="true"/>
+      <!-- 处理IMU数据方式:"copy"方法意味着将IMU数据复制到所有话题中，这样每个订阅者都可以接收到独立的数据副本。 -->
+      <arg name="unite_imu_method"         value="copy"/>
+    </include>
+  </group>
+
+  <!-- d435i相机直接使用rs_camera配置的 -->
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+      <arg name="camera"                value="$(arg camera2)"  />
+      <arg name="device_type"           value="$(arg device_type_camera2)"  />
+    </include>
+
+  <node pkg="tf" type="static_transform_publisher" name="t265_to_d435" args="0 0 0 0 0 0 /$(arg tf_prefix_camera1)_link /$(arg tf_prefix_camera2)_link 100"/>
+</launch>

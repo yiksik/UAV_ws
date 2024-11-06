@@ -1,0 +1,8 @@
+prefix=/home/fcs/UAV/UAV_WS/devel
+
+Name: controller_msgs
+Description: Description of controller_msgs
+Version: 0.0.1
+Cflags: -I/home/fcs/UAV/UAV_WS/devel/include -I/home/fcs/UAV/UAV_WS/src/realflight_modules/controller/controller_msgs/include
+Libs: -L${prefix}/lib 
+Requires: geometry_msgs sensor_msgs message_runtime std_msgs

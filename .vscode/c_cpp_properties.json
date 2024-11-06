@@ -1,0 +1,40 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/fcs/UAV/Fast-Drone-250-master/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/fcs/UAV/Fast-Drone-250-master/src/planner/bspline_opt/include/**",
+        "/home/fcs/UAV/Fast-Drone-250-master/src/realflight_modules/controller/controller_msgs/include/**",
+        "/home/fcs/UAV/Fast-Drone-250-master/src/utils/DecompROS/decomp_ros_utils/include/**",
+        "/home/fcs/UAV/Fast-Drone-250-master/src/planner/drone_detect/include/**",
+        "/home/fcs/UAV/Fast-Drone-250-master/src/planner/plan_manage/include/**",
+        "/home/fcs/UAV/Fast-Drone-250-master/src/realflight_modules/controller/geometric_controller/include/**",
+        "/home/fcs/UAV/Fast-Drone-250-master/src/uav_simulator/mockamap/include/**",
+        "/home/fcs/UAV/Fast-Drone-250-master/src/planner/path_searching/include/**",
+        "/home/fcs/UAV/Fast-Drone-250-master/src/planner/plan_env/include/**",
+        "/home/fcs/UAV/Fast-Drone-250-master/src/utils/pose_utils/include/**",
+        "/home/fcs/UAV/Fast-Drone-250-master/src/realflight_modules/VIO/include/**",
+        "/home/fcs/UAV/Fast-Drone-250-master/src/utils/quadrotor_msgs/include/**",
+        "/home/fcs/UAV/Fast-Drone-250-master/src/realflight_modules/realsense-ros/realsense2_camera/include/**",
+        "/home/fcs/UAV/Fast-Drone-250-master/src/auto_search/search_plan/include/**",
+        "/home/fcs/UAV/Fast-Drone-250-master/src/uav_simulator/so3_control/include/**",
+        "/home/fcs/UAV/Fast-Drone-250-master/src/uav_simulator/so3_quadrotor_simulator/include/**",
+        "/home/fcs/UAV/Fast-Drone-250-master/src/auto_search/target_merge/include/**",
+        "/home/fcs/UAV/Fast-Drone-250-master/src/planner/traj_utils/include/**",
+        "/home/fcs/UAV/Fast-Drone-250-master/src/utils/uav_utils/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

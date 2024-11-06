@@ -1,0 +1,19 @@
+<launch>    
+    <node pkg="target_merge" name="target_merge_node" type="target_merge_node" output="screen">
+        <param name="single_merged_threshold" value="15" type="int"/>
+        <param name="slow_down_counts" value="3" type="int"/>
+        <param name="z_core_threshold" value="2.5" type="double"/>
+        <param name="cov_threshold_1" value="0.1" type="double"/>
+        <param name="cov_threshold_2" value="1.0" type="double"/>
+        <param name="kf_cov_threshold" value="4.0" type="double"/>
+        <param name="drone_id" value="3" type="int"/>
+        <param name="target_PubDuration" value="1" type="double"/>
+        <param name="open_visualization" value="true" type="bool"/>
+
+        <param name="pub_target_merged_topic" value="/target_merge/pub_target_merged" type="string"/>
+        <param name="pub_target_to_search_topic" value = "/target_merge/target_to_search" type="string"/>
+        <param name="sub_target_merged_topic" value="/communication/sub_target_merged" type="string"/>
+        <param name="sub_pnp_topic" value="/detect_box_pnp/target" type="string"/>
+        <param name="search_service_name" value="/search_plan/slowdown_for_reg" type="string"/>
+    </node>
+</launch>
