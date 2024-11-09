@@ -1,0 +1,8 @@
+prefix=/home/fcs/UAV/Fast-Drone-250-master/src/realflight_modules/VIO/build/devel
+
+Name: vio
+Description: Description of vio
+Version: 0.0.0
+Cflags: -I/home/fcs/UAV/Fast-Drone-250-master/src/realflight_modules/VIO/include
+Libs: -L${prefix}/lib 
+Requires: roscpp rospy std_msgs mavros_msgs geometry_msgs mav_msgs sensor_msgs message_runtime tf
