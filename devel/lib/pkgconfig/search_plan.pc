@@ -1,8 +1,0 @@
-prefix=/home/fcs/UAV/UAV_WS/devel
-
-Name: search_plan
-Description: Description of search_plan
-Version: 0.0.0
-Cflags: -I/home/fcs/UAV/UAV_WS/devel/include -I/home/fcs/UAV/UAV_WS/src/auto_search/search_plan/include
-Libs: -L${prefix}/lib 
-Requires: message_generation message_runtime roscpp rospy std_msgs

@@ -1,8 +1,0 @@
-prefix=/home/fcs/UAV/UAV_WS/devel
-
-Name: target_merge
-Description: Description of target_merge
-Version: 0.0.0
-Cflags: -I/home/fcs/UAV/UAV_WS/devel/include -I/home/fcs/UAV/UAV_WS/src/auto_search/target_merge/include
-Libs: -L${prefix}/lib -ltarget_merge_lib
-Requires: geometry_msgs message_generation message_runtime roscpp rospy sensor_msgs std_msgs
