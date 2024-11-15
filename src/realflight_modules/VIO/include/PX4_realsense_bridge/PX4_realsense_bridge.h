@@ -9,50 +9,51 @@
 #include <thread>
 #include <mutex>
 
-namespace bridge {
+namespace bridge
+{
 
-  enum class MAV_STATE {
-  MAV_STATE_UNINIT,
-  MAV_STATE_BOOT,
-  MAV_STATE_CALIBRATIN,
-  MAV_STATE_STANDBY,
-  MAV_STATE_ACTIVE,
-  MAV_STATE_CRITICAL,
-  MAV_STATE_EMERGENCY,
-  MAV_STATE_POWEROFF,
-  MAV_STATE_FLIGHT_TERMINATION,
-};
+  enum class MAV_STATE
+  {
+    MAV_STATE_UNINIT,             // 未初始化
+    MAV_STATE_BOOT,               // 启动
+    MAV_STATE_CALIBRATIN,         // 校准
+    MAV_STATE_STANDBY,            // 待命
+    MAV_STATE_ACTIVE,             // 活跃
+    MAV_STATE_CRITICAL,           // 危急
+    MAV_STATE_EMERGENCY,          // 应急
+    MAV_STATE_POWEROFF,           // 关机
+    MAV_STATE_FLIGHT_TERMINATION, // 飞行终止
+  };
 
-class PX4_Realsense_Bridge {
- public:
-  PX4_Realsense_Bridge(const ros::NodeHandle& nh);
-  ~PX4_Realsense_Bridge();
+  class PX4_Realsense_Bridge
+  {
+  public:
+    PX4_Realsense_Bridge(const ros::NodeHandle &nh); // 构造函数，传入ros节点句柄
+    ~PX4_Realsense_Bridge();                         // 析构函数，在对象生命周期结束时执行清理工作
 
-  void publishSystemStatus();
+    void publishSystemStatus(); // 发布系统状态
 
-  std::thread worker_;
+    std::thread worker_; // 声明一个线程对象，用于线程管理
 
+  private:
+    ros::NodeHandle nh_; // 节点句柄对象
 
- private:
-  ros::NodeHandle nh_;
+    // Subscribers
+    ros::Subscriber odom_sub_; // 订阅里程计
+    // Publishers
+    ros::Publisher mavros_odom_pub_;          // 发布里程计
+    ros::Publisher mavros_system_status_pub_; // 发布系统状态
 
-  // Subscribers
-  ros::Subscriber odom_sub_;
-  // Publishers
-  ros::Publisher mavros_odom_pub_;
-  ros::Publisher mavros_system_status_pub_;
+    MAV_STATE system_status_{MAV_STATE::MAV_STATE_UNINIT}; // 声明两个状态枚举变量
+    MAV_STATE last_system_status_{MAV_STATE::MAV_STATE_UNINIT};
 
-  MAV_STATE system_status_{MAV_STATE::MAV_STATE_UNINIT};
-  MAV_STATE last_system_status_{MAV_STATE::MAV_STATE_UNINIT};
+    std::unique_ptr<std::mutex> status_mutex_; // 智能指针，指向一个 std::mutex 对象
 
-  std::unique_ptr<std::mutex> status_mutex_;
+    void odomCallback(const nav_msgs::Odometry &msg);   //回调函数
 
-  void odomCallback(const nav_msgs::Odometry& msg);
+    bool flag_first_pose_received{false};      //声明一个布尔值，记录是否获得位姿
 
-  bool flag_first_pose_received{false};
-
-  ros::Time last_callback_time;
-
-};
+    ros::Time last_callback_time;   //时间戳
+  };
 }
-#endif  // PX4_REALSENSE_BRIDGE
+#endif // PX4_REALSENSE_BRIDGE
